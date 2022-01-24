@@ -5,7 +5,6 @@ function install_dependencies {
 	if [ -f "dependencies.log" ]; then
     		echo "starting gazebo"
 	else
-		git checkout v1.12.3
 		pip3 install -r requirements.txt
 		./Tools/setup/ubuntu.sh
 	fi	
