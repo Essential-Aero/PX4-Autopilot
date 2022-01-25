@@ -5,6 +5,7 @@ function install_dependencies {
 	if [ -f "dependencies.log" ]; then
     		echo "starting gazebo"
 	else
+		sudo apt-get install python3-pip
 		pip3 install -r requirements.txt
 		./Tools/setup/ubuntu.sh
 	fi	
