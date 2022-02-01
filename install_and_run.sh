@@ -31,4 +31,4 @@ export PX4_HOME_LAT=$latitude
 export PX4_HOME_LON=$longitude
 export PX4_HOME_ALT=$altitude
 
-make px4_sitl_default gazebo
+HEADLESS=1 make px4_sitl_default gazebo
