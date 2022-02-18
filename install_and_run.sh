@@ -6,8 +6,9 @@ function install_dependencies {
     		echo "starting gazebo"
 	else
 		git submodule update --init --recursive
-		sudo apt-get install python3-pip
-		sudo apt-get install make
+		sudo apt-get install -y python3-pip
+		sudo apt-get install -y python-pip
+		sudo apt-get install -y make
 		pip3 install -r requirements.txt
 		pip3 install --upgrade pip
 		pip3 install --upgrade setuptools
