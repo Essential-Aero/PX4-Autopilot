@@ -11,6 +11,7 @@ function install_dependencies {
 		./Tools/setup/ubuntu.sh
 		wget https://github.com/Kitware/CMake/releases/download/v3.18.2/cmake-3.18.2-Linux-x86_64.sh -O cmake.sh
 		sudo sh cmake.sh --prefix=/usr/bin/ --exclude-subdir
+		sudo sh cmake.sh --prefix=/usr/local/ --exclude-subdir
 	fi
 
 }
