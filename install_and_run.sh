@@ -8,11 +8,11 @@ function install_dependencies {
 		git submodule update --init --recursive
 		sudo apt-get install python3-pip
 		pip3 install -r requirements.txt
-		pip3 --upgrade setuptools
+		pip3 install --upgrade pip
+		pip3 install --upgrade setuptools
 		./Tools/setup/ubuntu.sh
 		wget https://github.com/Kitware/CMake/releases/download/v3.18.2/cmake-3.18.2-Linux-x86_64.sh -O cmake.sh
-		sudo sh cmake.sh --prefix=/usr/bin/ --exclude-subdir
-		sudo sh cmake.sh --prefix=/usr/local/ --exclude-subdir
+		sudo sh cmake.sh --prefix=/usr --exclude-subdir
 	fi
 
 }
