@@ -5,9 +5,12 @@ function install_dependencies {
 	if [ -f "dependencies.log" ]; then
     		echo "starting gazebo"
 	else
+		git submodule update --init --recursive
 		sudo apt-get install python3-pip
 		pip3 install -r requirements.txt
 		./Tools/setup/ubuntu.sh
+		wget https://github.com/Kitware/CMake/releases/download/v3.18.2/cmake-3.18.2-Linux-x86_64.sh -O cmake.sh
+		sudo sh cmake.sh --prefix=/usr/bin/ --exclude-subdir
 	fi
 
 }
@@ -38,9 +41,9 @@ var2=$var1$ip_address
 
 if [ -z "$ip_address" ];
 then
-	sed -i.bak 's/-p.*/-p/g' ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink
+	sed -i 's/-p.*/-p/g' ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink
 	HEADLESS=1 make px4_sitl_default gazebo
 else
-	sed -i.bak "s/$var2/g" ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink
+	sed -i "s/$var2/g" ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink
 	HEADLESS=1 make px4_sitl_default gazebo
 fi
